@@ -46,10 +46,10 @@ test:
   username: neil-maul
   password:
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: neil-maul_production
-  pool: 5
-  username: neil-maul
-  password:
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: neil-maul_production
+#   pool: 5
+#   username: neil-maul
+#   password:
