@@ -1,14 +1,46 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>NeilMaul</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en-gb">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<%= yield %>
+    <title>NeilMaul</title>
 
-</body>
+    <%= stylesheet_link_tag "application", :media => "screen" %>
+
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="banner" role="banner">
+        <hgroup>
+          <h1>Neil Maul</h1>
+          <h2>Painter &amp; Decorator</h2>
+        </hgroup>
+
+        <nav role="nav">
+          <ul>
+            <li></li>
+          </ul>
+        </nav>
+      </div>
+
+      <section id="main" role="main">
+        <% if flash[:notice] %>
+          <div id="notice">
+            <p><%= flash[:notice] %></p>
+          </div>
+        <% end %>
+
+        <%= yield %>
+      </section>
+
+      <footer id="footer" role="contentinfo">
+        <p><small>Neil Maul &copy; 2012</small></p>
+      </footer>
+
+    </div>
+
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
