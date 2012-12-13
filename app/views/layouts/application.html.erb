@@ -12,9 +12,10 @@
   </head>
   <body>
     <div id="wrapper">
-      <div id="banner" role="banner">
+      <header id="banner" role="banner">
         <hgroup>
-          <h1>Neil Maul</h1>
+          <h1>
+            <%= link_to 'Neil Maul', root_path, { title: 'return to the homepage', role: 'link' } %></h1>
           <h2>Painter &amp; Decorator</h2>
         </hgroup>
 
@@ -23,7 +24,9 @@
             <li></li>
           </ul>
         </nav>
-      </div>
+      </header>
+
+      <hr />
 
       <section id="main" role="main">
         <% if flash[:notice] %>
@@ -34,6 +37,8 @@
 
         <%= yield %>
       </section>
+
+      <hr />
 
       <footer id="footer" role="contentinfo">
         <p><small>Neil Maul &copy; 2012</small></p>

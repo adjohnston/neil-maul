@@ -1,5 +1,7 @@
 NeilMaul::Application.routes.draw do
   
+  get "home/index"
+
   resources :sessions
 
   match 'login' => 'sessions#new', as: 'login'
