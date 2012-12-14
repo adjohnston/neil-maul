@@ -13,6 +13,10 @@
   <body>
     <div id="wrapper">
       <header id="banner" role="banner">
+        <% if auth_user %>
+          <div id="welcome-msg">hello <%= auth_user.name %></div>
+        <% end %>
+
         <hgroup>
           <h1>
             <%= link_to 'Neil Maul', root_path, { title: 'return to the homepage', role: 'link' } %></h1>

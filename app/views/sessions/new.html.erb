@@ -1,32 +1,38 @@
-<header>
-  <h1>Login</h1>
-  <p>Login in to your account below to access admin tools. If you do not have an account please contact the administrator.</p>
-</header>
+<div id="login-wrapper">
+  <header>
+    <h1>Login</h1>
+    <p>Login in to your account below to access admin tools. If you do not have an account please contact the administrator.</p>
+  </header>
 
-<% if flash[:alert] %>
-  <div id="error">
-    <p><%= flash[:alert] %></p>
-  </div>
-<% end %>
+  <% if auth_user %>
+    <p><b><%= auth_user.name %>!</b> You are already logged in, did you want to <%= link_to 'logout?', logout_path, role: 'link' %></p>
+  <% end %>
 
-<%= form_tag 'sessions' do %>
-  <fieldset>
-    <legend>Sessions</legend>
+  <% if flash[:alert] %>
+    <div id="error">
+      <p><%= flash[:alert] %></p>
+    </div>
+  <% end %>
 
-    <ol>
-      <li>
-        <%= label_tag :email, 'email address' %>
-        <%= email_field_tag :email, nil, placeholder: 'email address' %>
-      </li>
+  <%= form_tag 'sessions' do %>
+    <fieldset>
+      <legend>Sessions</legend>
 
-      <li>
-        <%= label_tag :password, 'password' %>
-        <%= password_field_tag :password, nil, placeholder: 'password' %>
-      </li>
+      <ol>
+        <li>
+          <%= label_tag :email, 'email address' %>
+          <%= email_field_tag :email, nil, placeholder: 'email address' %>
+        </li>
 
-      <li>
-        <%= submit_tag 'login' %>
-      </li>
-    </ol>
-  </fieldset>
-<% end %>
+        <li>
+          <%= label_tag :password, 'password' %>
+          <%= password_field_tag :password, nil, placeholder: 'password' %>
+        </li>
+
+        <li>
+          <%= submit_tag 'login' %>
+        </li>
+      </ol>
+    </fieldset>
+  <% end %>
+</div>
